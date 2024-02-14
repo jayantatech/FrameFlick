@@ -1,0 +1,60 @@
+import React, { useEffect, useState } from "react";
+import { IoIosStar } from "react-icons/io";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
+import GenresCard from "../genresCard/GenresCard";
+import BothButton from "../bothButton/BothButton";
+import ResponsiveTitle from "../responsiveTitle/responsiveTitle";
+import ResponsiveText from "../responsiveText/ResponsiveText";
+import RattingBox from "../rattingBox/RattingBox";
+import DateBox from "../dateBox/DateBox";
+
+const MovieHeroInfo = ({ movieHeroData, storeGen }) => {
+  const [storeSlice, setStoreSlice] = useState(null);
+  useEffect(() => {
+    const slicGen = storeGen && storeGen?.slice(0, 3);
+    setStoreSlice(slicGen);
+  }, [storeGen]);
+
+  console.log(storeGen);
+  return (
+    <ContentWrapper>
+      <div className=" relative top-0 left-0 w-full h-[590px] max-md:h-[670px] flex items-end justify-center py-4 z-20">
+        <div className=" w-full min-h-[270px] max-lg:min-h-[270px] max-md:min-h-[470px] rounded-lg  bg-[#636262] backdrop-filter backdrop-blur-sm bg-opacity-60 p-4 max-lg:px-2 flex flex-row gap-2 max-md:flex-col">
+          <div className=" md:w-3/6">
+            <h2 className=" text-3xl font-[Roboto] font-bold text-white min-h-[40px]">
+              {movieHeroData?.original_title}
+            </h2>
+            {/* <ResponsiveTitle data={testData} /> */}
+            <div className=" w-full h-[40px]  my-2 flex items-center flex-row gap-2 px-2">
+              <DateBox data={movieHeroData} />
+              <RattingBox data={movieHeroData} />
+            </div>
+            {
+              <div className=" w-full h-[60px] max-md:h-[80px] max-lg:h-[90px] flex items-center justify-start px-2 flex-row gap-2">
+                <ResponsiveText data={testData} upTo={15} />
+              </div>
+            }
+            <div className=" px-2 py-3 flex items-center justify-center gap-2 flex-row">
+              <BothButton data={movieHeroData} />
+            </div>
+          </div>
+          <div className=" md:w-3/6 max-h-[210px] max-lg:max-h-[240px] max-md:min-h-[240px] px-3 py-3 flex items-center justify-start gap-6 max-lg:gap-3 flex-wrap flex-col">
+            <div className=" w-full py-1 bg-[#000] text-white text-center rounded-md">
+              <span className=" font-[Roboto] font-semibold text-lg">
+                {" "}
+                {movieHeroData?.original_title} Genres
+              </span>
+            </div>
+            <div className=" flex items-center justify-center gap-3 flex-wrap flex-row max-md:flex-row ">
+              {storeSlice?.map((item, index) => (
+                <GenresCard key={index} item={item} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ContentWrapper>
+  );
+};
+
+export default MovieHeroInfo;

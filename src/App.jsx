@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
-import ContentWrapper from "./components/contentWrapper/ContentWrapper";
 import Header from "./components/header/Header";
-import SearchBar from "./components/header/SearchBar";
-import { fetchDataFromApi } from "./Utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilmGenres, setUrl } from "./store/HomeSlice";
 import Home from "./pages/home/Home";

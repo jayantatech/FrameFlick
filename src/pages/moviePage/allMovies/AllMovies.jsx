@@ -13,10 +13,12 @@ const AllMovies = ({ data, loading }) => {
               our Movie suggestions
             </h2>
           </div>
-          <div className=" w-full h-auto flex py-6 flex-row flex-wrap gap-4 items-center justify-between">
-            {data?.results?.map((item) => {
-              return <FilmCard data={item} loading={loading} />;
-            })}
+          <FilmMore data={data} />
+
+          <div className=" w-full h-auto flex py-6 flex-row flex-wrap gap-4 items-center justify-between max-md:justify-center">
+            {data?.results?.map((item, index) => (
+              <FilmCard key={index} data={item} loading={loading} />
+            ))}
           </div>
         </div>
       </ContentWrapper>

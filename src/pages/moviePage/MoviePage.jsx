@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import HeroMovie from "./heroMovie/HeroMovie";
 import AllMovies from "./allMovies/AllMovies";
 import fetchData from "../../components/hooks/fetchData";
 import FilmMore from "../../components/filmMore/FilmMore";
+import { useSelector } from "react-redux";
 
 const MoviePage = () => {
   const [moviePageNo, setMoviePageNo] = useState(1);
   const { data, loading } = fetchData(
-    // `trending/movie/week?page=${moviePageNo}`
-    `movie/top_rated?language=en-US&page=1`
+    `movie/top_rated?language=en-US&page=${moviePageNo}`
   );
+
+  const { pageNo } = useSelector((state) => state.filmPage);
+
+  useEffect(() => {
+    setMoviePageNo(pageNo);
+  }, [pageNo]);
+
   return (
-    <div>
+    <>
       <HeroMovie data={data} loading={loading} />
       <AllMovies data={data} />
-      <FilmMore />
-    </div>
+    </>
   );
 };
 

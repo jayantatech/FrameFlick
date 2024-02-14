@@ -16,7 +16,6 @@ const homeSlice = createSlice({
       state.url = action.payload;
     },
     setFilmGenres: (state, action) => {
-      // console.log(action);
       state.filmGenres = action.payload;
     },
     setVideoPopBox: (state, action) => {

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 const MoviePage = () => {
   const [moviePageNo, setMoviePageNo] = useState(1);
+  const [storeHeroData, setStoreHeroData] = useState(null);
   const { data, loading } = fetchData(
     `movie/top_rated?language=en-US&page=${moviePageNo}`
   );
@@ -17,9 +18,15 @@ const MoviePage = () => {
     setMoviePageNo(pageNo);
   }, [pageNo]);
 
+  useEffect(() => {
+    if (data && !storeHeroData) {
+      setStoreHeroData(data);
+    }
+  }, [data, storeHeroData]);
+
   return (
     <>
-      <HeroMovie data={data} loading={loading} />
+      <HeroMovie data={storeHeroData} loading={loading} />
       <AllMovies data={data} />
     </>
   );

@@ -11,6 +11,7 @@ import { useLocation, useNavigate } from "react-router";
 const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMobileBar, setOpenMobileBar] = useState(false);
+  const [activePage, setActivePage] = useState("/");
 
   const refValu = useRef();
   const locationUrl = useLocation();
@@ -40,7 +41,9 @@ const Header = () => {
 
   function navigateToNewPage(page) {
     navigatePage(`${page}`);
+    setActivePage(page);
   }
+  console.log(activePage);
 
   return (
     <>
@@ -68,18 +71,32 @@ const Header = () => {
               </div>
               <ul className="flex max-md:flex-col  items-center justify-center gap-14 max-md:gap-8 font-bold font-[Roboto] max-md:items-start max-md:justify-start ml-2">
                 <li
-                  className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
+                    activePage === "/"
+                      ? "bg-[#30B170] hover:text-white text-white"
+                      : "bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  }`}
                   onClick={() => navigateToNewPage("/")}
                 >
                   Home
                 </li>
                 <li
-                  className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
+                    activePage === "/movies"
+                      ? "bg-[#30B170] hover:text-white text-white"
+                      : "bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  }`}
                   onClick={() => navigateToNewPage("/movies")}
                 >
                   Movies
                 </li>
-                <li className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white">
+                <li
+                  className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
+                    activePage === "/tv"
+                      ? "bg-[#30B170] hover:text-white text-white"
+                      : "bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  }`}
+                >
                   TV Shows
                 </li>
                 <li className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white">

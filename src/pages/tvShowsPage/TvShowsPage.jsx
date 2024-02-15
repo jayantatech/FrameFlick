@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
-import HeroMovie from "./heroMovie/HeroMovie";
-import AllMovies from "./allMovies/AllMovies";
-import fetchData from "../../components/hooks/fetchData";
-import FilmMore from "../../components/filmMore/FilmMore";
 import { useDispatch, useSelector } from "react-redux";
+import fetchData from "../../components/hooks/fetchData";
+import { useEffect, useState } from "react";
+import HeroShows from "./heroShows/HeroShows";
+import AllShows from "./allShows/AllShows";
 import { setCurrentTabValu } from "../../store/HomeSlice";
 
-const MoviePage = () => {
+const TvShowsPage = () => {
   const [moviePageNo, setMoviePageNo] = useState(1);
   const [storeHeroData, setStoreHeroData] = useState(null);
-  const [storeTab, setStoreTab] = useState(null);
-
+  const [storeTab, setStoreTab] = useState("movies");
   const { data, loading } = fetchData(
-    `movie/top_rated?language=en-US&page=${moviePageNo}`
+    `tv/top_rated?language=en-US&page=${moviePageNo}`
   );
 
   const { pageNo } = useSelector((state) => state.filmPage);
@@ -29,14 +27,15 @@ const MoviePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setCurrentTabValu("movie"));
-  }, []);
+    dispatch(setCurrentTabValu("tv"));
+  }, [storeTab]);
+
   return (
     <>
-      <HeroMovie data={storeHeroData} loading={loading} tab={"Movies"} />
-      <AllMovies data={data} />
+      <HeroShows data={storeHeroData} loading={loading} />
+      <AllShows data={data} />
     </>
   );
 };
 
-export default MoviePage;
+export default TvShowsPage;

@@ -7,7 +7,6 @@ const FlimPageSlice = createSlice({
   },
   reducers: {
     changePage: (state, action) => {
-      console.log(action);
       state.pageNo = action.payload;
     },
   },

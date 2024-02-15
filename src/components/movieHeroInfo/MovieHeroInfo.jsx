@@ -8,7 +8,7 @@ import ResponsiveText from "../responsiveText/ResponsiveText";
 import RattingBox from "../rattingBox/RattingBox";
 import DateBox from "../dateBox/DateBox";
 
-const MovieHeroInfo = ({ movieHeroData, storeGen }) => {
+const MovieHeroInfo = ({ movieHeroData, storeGen, page }) => {
   const [storeSlice, setStoreSlice] = useState(null);
   useEffect(() => {
     const slicGen = storeGen && storeGen?.slice(0, 3);
@@ -19,8 +19,11 @@ const MovieHeroInfo = ({ movieHeroData, storeGen }) => {
       <div className=" relative top-0 left-0 w-full h-[590px] max-md:h-[670px] flex items-end justify-center py-4 z-20">
         <div className=" w-full min-h-[270px] max-lg:min-h-[270px] max-md:min-h-[470px] rounded-lg  bg-[#636262] backdrop-filter backdrop-blur-sm bg-opacity-60 p-4 max-lg:px-2 flex flex-row gap-2 max-md:flex-col">
           <div className=" md:w-3/6">
+            <h3 className=" w-fit text-md font-bold capitalize text-[#fff] font-[Roboto] px-2 bg-[#30B170] rounded-md my-1">
+              recommended {page} :
+            </h3>
             <h2 className=" text-3xl font-[Roboto] font-bold text-white min-h-[40px]">
-              {movieHeroData?.original_title}
+              {movieHeroData?.original_title || movieHeroData?.name}
             </h2>
             {/* <ResponsiveTitle data={testData} /> */}
             <div className=" w-full h-[40px]  my-2 flex items-center flex-row gap-2 px-2">
@@ -40,7 +43,7 @@ const MovieHeroInfo = ({ movieHeroData, storeGen }) => {
             <div className=" w-full py-1 bg-[#000] text-white text-center rounded-md">
               <span className=" font-[Roboto] font-semibold text-lg">
                 {" "}
-                {movieHeroData?.original_title} Genres
+                {movieHeroData?.original_title || movieHeroData?.name} Genres
               </span>
             </div>
             <div className=" flex items-center justify-center gap-3 flex-wrap flex-row max-md:flex-row ">

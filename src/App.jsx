@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 import ReviewPage from "./pages/reviewPage/ReviewPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MoviePage from "./pages/moviePage/MoviePage";
+import TvShowsPage from "./pages/tvShowsPage/TvShowsPage";
 
 /* 
 main green color - #58DAA8
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/review/:film/:id" element={<ReviewPage />} />
         <Route path="/movies" element={<MoviePage />} />
+        <Route path="/tv_shows" element={<TvShowsPage />} />
       </Routes>
       {/* <div className=" w-full h-[800px]"></div> */}
       <Footer />

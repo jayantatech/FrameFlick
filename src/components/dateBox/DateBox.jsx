@@ -13,7 +13,7 @@ const DateBox = ({ data }) => {
     <div className=" text-lg font-extrabold font-[Roboto] flex items-center justify-start gap-2 px-2 py-1 rounded-lg bg-white md:w-[160px] max-md:w-[50%]">
       Data:
       <span className="font-bold max-md:text-base">
-        {data && timeFormath(data?.release_date)}
+        {data && timeFormath(data?.release_date || data?.first_air_date)}
       </span>
     </div>
   );

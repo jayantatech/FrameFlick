@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
-
 import { GrMenu } from "react-icons/gr";
 import { IoSearch } from "react-icons/io5";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { logo } from "../../assets/icons";
 import { IoMdClose } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router";
-// import SearchBar from "./SearchBar";
+import { useDispatch } from "react-redux";
+import { setCurrentTabValu } from "../../store/HomeSlice";
 
 const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [openMobileBar, setOpenMobileBar] = useState(false);
-  const [activePage, setActivePage] = useState("/");
+  const [activePage, setActivePage] = useState(null);
 
   const refValu = useRef();
   const locationUrl = useLocation();
@@ -41,9 +41,12 @@ const Header = () => {
 
   function navigateToNewPage(page) {
     navigatePage(`${page}`);
-    setActivePage(page);
   }
-  console.log(activePage);
+
+  const location = useLocation();
+  useEffect(() => {
+    setActivePage(location?.pathname);
+  }, [location]);
 
   return (
     <>
@@ -92,10 +95,11 @@ const Header = () => {
                 </li>
                 <li
                   className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
-                    activePage === "/tv"
+                    activePage === "/tv_shows"
                       ? "bg-[#30B170] hover:text-white text-white"
                       : "bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
                   }`}
+                  onClick={() => navigateToNewPage("/tv_shows")}
                 >
                   TV Shows
                 </li>

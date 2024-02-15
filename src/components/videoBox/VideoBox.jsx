@@ -21,7 +21,6 @@ const VideoBox = ({ dataInfo }) => {
     slidesToShow: 4,
     slidesToScroll: 1,
   };
-  // console.log(videoData);
 
   let isTabActive = window.innerWidth >= 768 && window.innerWidth <= 992;
 

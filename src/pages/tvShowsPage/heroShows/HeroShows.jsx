@@ -3,7 +3,7 @@ import MyImage from "../../../components/myImage/MyImage";
 import { useSelector } from "react-redux";
 import MovieHeroInfo from "../../../components/movieHeroInfo/MovieHeroInfo";
 
-const HeroMovie = ({ data }) => {
+const HeroShows = ({ data }) => {
   const [storeGen, setStoreGen] = useState([]);
   const [storeRendom, setStoreRendom] = useState(null);
   const { url, filmGenres } = useSelector((state) => state.home);
@@ -41,10 +41,10 @@ const HeroMovie = ({ data }) => {
       <MovieHeroInfo
         movieHeroData={movieHeroData}
         storeGen={storeGen}
-        page={"Movies"}
+        page={"Tv Shows"}
       />
     </div>
   );
 };
 
-export default HeroMovie;
+export default HeroShows;

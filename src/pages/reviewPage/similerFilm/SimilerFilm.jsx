@@ -3,7 +3,6 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import fetchData from "../../../components/hooks/fetchData";
 import SliderComponent from "../../../components/sliderComponent/SliderComponent";
 const SimilerFilm = ({ data, loading }) => {
-  console.log(data);
   return (
     <div className=" py-16 my-14 bg-[#E6FFF8]">
       <ContentWrapper>

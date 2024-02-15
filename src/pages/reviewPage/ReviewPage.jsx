@@ -22,7 +22,6 @@ const ReviewPage = () => {
   const { data: newData, loading: newLoading } = fetchData(
     `${currentTabValu}/${id && id}/videos`
   );
-  console.log(data);
   return (
     <>
       <ReviewHero

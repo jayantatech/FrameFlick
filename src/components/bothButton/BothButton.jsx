@@ -1,6 +1,6 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { setVideoPopBox } from "../../store/HomeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentTabValu, setVideoPopBox } from "../../store/HomeSlice";
 import fetchData from "../hooks/fetchData";
 import { useNavigate } from "react-router";
 
@@ -17,12 +17,14 @@ const BothButton = ({ data }) => {
       setVideoPopBox([{ vidBoxOnPass: true, vidBoxInfoPass: oneTrailer }])
     );
   };
+  const { currentTabValu } = useSelector((state) => state.home);
 
   const navigateNew = useNavigate();
 
   const navigateToNewPage = () => {
-    navigateNew(`/review/${"movie"}/${data?.id}`);
+    navigateNew(`/review/${currentTabValu}/${data?.id}`);
   };
+
   return (
     <>
       <button

@@ -3,7 +3,8 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import fetchData from "../../../components/hooks/fetchData";
 import SliderComponent from "../../../components/sliderComponent/SliderComponent";
 import { useDispatch } from "react-redux";
-import { setCurrentTabValu } from "../../../store/HomeSlice";
+import { setCurrentTabValu, setFavoritesTabs } from "../../../store/HomeSlice";
+import FavoritesSlider from "../../../components/favoritesSlider/FavoritesSlider";
 
 const CurrentFavorites = () => {
   const [changeTab, setChangeTab] = useState(false);
@@ -17,7 +18,12 @@ const CurrentFavorites = () => {
     setPassValu(filmInfo);
   }
   useEffect(() => {
-    dispatch(setCurrentTabValu(passValu));
+    let dataV = "movie";
+    if (passValu === "tv") {
+      dataV = "tv";
+    }
+
+    dispatch(setFavoritesTabs(dataV));
   }, [passValu]);
   return (
     <div className="mt-20">
@@ -27,7 +33,7 @@ const CurrentFavorites = () => {
             Current Favorites
           </h2>
           <div className="border-4 border-[#30B170] px-2 rounded-lg shadow-xl pb-3">
-            <SliderComponent data={data} loading={loading} tabValu={passValu} />
+            <FavoritesSlider data={data} loading={loading} />
             <div className=" w-full h-[60px] relative flex flex-row gap-5">
               <div
                 className={`absolute transition-all duration-300  ${

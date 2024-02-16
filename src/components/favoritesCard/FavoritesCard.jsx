@@ -6,13 +6,15 @@ import { setVideoPopBox } from "../../store/HomeSlice";
 import MyImage from "../myImage/MyImage";
 import { useLoaderData, useLocation, useNavigate } from "react-router";
 
-const FilmCard = ({ data, loading, tabTo }) => {
+const FavoritesCard = ({ data, loading, currentTabValu = "movie" }) => {
+  const [videoBoxActive, setVideoBoxActive] = useState(false);
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state?.home);
-  const { currentTabValu } = useSelector((state) => state?.home);
+
   const { data: newData, loading: newLoading } = fetchData(
-    `${tabTo ? tabTo : currentTabValu}/${data?.id && data?.id}/videos`
+    `${currentTabValu}/${data?.id && data?.id}/videos`
   );
+
   const averageVote = data && data?.vote_average;
   const votePointer = Number(
     data && data?.vote_average.toString().split(".")[1]
@@ -43,10 +45,9 @@ const FilmCard = ({ data, loading, tabTo }) => {
     );
   };
   const navigateNew = useNavigate();
-  const location = useLocation();
 
   const navigateToNewPage = () => {
-    navigateNew(`/review/${tabTo ? tabTo : currentTabValu}/${data?.id}`);
+    navigateNew(`/review/${currentTabValu}/${data?.id}`);
   };
 
   return (
@@ -87,7 +88,7 @@ const FilmCard = ({ data, loading, tabTo }) => {
               </button>
             )}
             <button
-              className="h-full w-full bg-[#30b170] rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105"
+              className="h-full w-full bg-[#30B170] rounded-lg transition-all duration-300 hover:shadow-md hover:scale-105"
               onClick={navigateToNewPage}
             >
               Learn More
@@ -99,4 +100,4 @@ const FilmCard = ({ data, loading, tabTo }) => {
   );
 };
 
-export default FilmCard;
+export default FavoritesCard;

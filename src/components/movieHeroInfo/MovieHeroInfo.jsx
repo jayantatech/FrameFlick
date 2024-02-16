@@ -19,9 +19,11 @@ const MovieHeroInfo = ({ movieHeroData, storeGen, page }) => {
       <div className=" relative top-0 left-0 w-full h-[590px] max-md:h-[670px] flex items-end justify-center py-4 z-20">
         <div className=" w-full min-h-[270px] max-lg:min-h-[270px] max-md:min-h-[470px] rounded-lg  bg-[#636262] backdrop-filter backdrop-blur-sm bg-opacity-60 p-4 max-lg:px-2 flex flex-row gap-2 max-md:flex-col">
           <div className=" md:w-3/6">
-            <h3 className=" w-fit text-md font-bold capitalize text-[#fff] font-[Roboto] px-2 bg-[#30B170] rounded-md my-1">
-              recommended {page} :
-            </h3>
+            {page && (
+              <h3 className=" w-fit text-md font-bold capitalize text-[#fff] font-[Roboto] px-2 bg-[#30B170] rounded-md my-1">
+                recommended {page} :
+              </h3>
+            )}
             <h2 className=" text-3xl font-[Roboto] font-bold text-white min-h-[40px]">
               {movieHeroData?.original_title || movieHeroData?.name}
             </h2>

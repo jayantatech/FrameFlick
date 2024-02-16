@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import fetchData from "../../../components/hooks/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import MyImage from "../../../components/myImage/MyImage";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { IoStar } from "react-icons/io5";
 import FilmDetails from "../../../components/filmDetails/FilmDetails";
 import { setVideoPopBox } from "../../../store/HomeSlice";
 
-const ReviewHero = ({ film, id, newData, newLoading }) => {
+const ReviewHero = ({ film, id, newData, loading: newloading }) => {
+  const [loadingImg, setLoadingImg] = useState(false);
   const { data, loading } = fetchData(`${film}/${id}`);
   const { data: creditsData, loading: loadingData } =
     fetchData(`${film}/${id}/credits
@@ -36,24 +37,28 @@ const ReviewHero = ({ film, id, newData, newLoading }) => {
     <div className=" w-full max-md:h-[1460px] max-lg:h-[920px]">
       <div className=" w-full lg:h-[660px] max-lg:h-[430px] max-md:h-[410px] relative overflow-hidden flex items-center justify-center bg-black">
         <div className=" w-full h-full bg-[#00000073] absolute top-0 left-0 z-10"></div>
-        <MyImage
-          src={`${url}${data?.backdrop_path}`}
-          className={"w-full h-full bg-cover max-md:scale-[3]"}
-        />
+        {!loading && (
+          <MyImage
+            src={`${url}${data?.backdrop_path}`}
+            className={"w-full h-full bg-cover max-md:scale-[3]"}
+          />
+        )}
       </div>
       <ContentWrapper>
         <div className=" relative w-full h-[410px] lg:h-[310px] z-20">
           <div className="h-full grid grid-flow-col max-md:grid-flow-row max-md:grid-cols-1 grid-cols-8 gap-3 -translate-y-40">
-            <div className=" col-span-2 max-md:w-full max-lg:col-span-3 bg-cover flex p-2">
+            <div className=" col-span-2 h-[420px] max-md:w-full max-lg:col-span-3 bg-cover flex p-2">
               <div
                 className={
-                  "w-full h-full rounded-lg transition-all duration-300 hover:scale-95 overflow-hidden bg-black  max-md:h-full max-lg:h-[390px]"
+                  "w-full h-full rounded-lg transition-all duration-300 hover:scale-95 overflow-hidden bg-[#000]  max-md:h-full max-lg:h-[390px]"
                 }
               >
-                <MyImage
-                  src={`${url + data?.poster_path}`}
-                  className={"scale-105"}
-                />
+                {!loading && (
+                  <MyImage
+                    src={`${url + data?.poster_path}`}
+                    className={"scale-105"}
+                  />
+                )}
               </div>
             </div>
             <div className=" col-span-6 max-lg:col-span-5 w-full h-full px-3 py-2">
@@ -100,12 +105,14 @@ const ReviewHero = ({ film, id, newData, newLoading }) => {
                       <p className=" font-[Poppins]">{data?.overview}</p>
                     </div>
                     <div className=" w-full h-[70px] 400 py-2 mt-3">
-                      <button
-                        className="flex items-center justify-center w-full h-full gap-2 text-xl font-bold bg-[#000] font-[Roboto] rounded-md text-white transition-all duration-300 hover:scale-95 shadow-xl"
-                        onClick={openVideoBox}
-                      >
-                        Play Trailler
-                      </button>
+                      {oneTrailer && (
+                        <button
+                          className="flex items-center justify-center w-full h-full gap-2 text-xl font-bold bg-[#000] font-[Roboto] rounded-md text-white transition-all duration-300 hover:scale-95 shadow-xl"
+                          onClick={openVideoBox}
+                        >
+                          Play Trailler
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

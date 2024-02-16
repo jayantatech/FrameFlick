@@ -10,6 +10,7 @@ const homeSlice = createSlice({
       vidBoxInfo: {},
     },
     currentTabValu: "movie",
+    favoritesTabs: "movie",
   },
   reducers: {
     setUrl: (state, action) => {
@@ -25,9 +26,17 @@ const homeSlice = createSlice({
     setCurrentTabValu: (state, action) => {
       state.currentTabValu = action.payload;
     },
+    setFavoritesTabs: (state, action) => {
+      state.favoritesTabs = action.payload;
+    },
   },
 });
 
-export const { setUrl, setFilmGenres, setVideoPopBox, setCurrentTabValu } =
-  homeSlice.actions;
+export const {
+  setUrl,
+  setFilmGenres,
+  setVideoPopBox,
+  setCurrentTabValu,
+  setFavoritesTabs,
+} = homeSlice.actions;
 export default homeSlice.reducer;

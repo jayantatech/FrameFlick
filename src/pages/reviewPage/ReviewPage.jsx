@@ -24,12 +24,7 @@ const ReviewPage = () => {
   );
   return (
     <>
-      <ReviewHero
-        film={film}
-        id={id}
-        newData={newData}
-        newLoading={newLoading}
-      />
+      <ReviewHero film={film} id={id} newData={newData} loading={loading} />
       {newData?.results.length > 0 && (
         <VideoSection data={newData} loading={newLoading} />
       )}

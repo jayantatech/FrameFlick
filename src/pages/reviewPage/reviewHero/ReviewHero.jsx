@@ -32,7 +32,6 @@ const ReviewHero = ({ film, id, newData, loading: newloading }) => {
       setVideoPopBox([{ vidBoxOnPass: true, vidBoxInfoPass: oneTrailer }])
     );
   };
-  console.log(data);
   return (
     <div className=" w-full max-md:h-[1460px] max-lg:h-[920px]">
       <div className=" w-full lg:h-[660px] max-lg:h-[430px] max-md:h-[410px] relative overflow-hidden flex items-center justify-center bg-black">

@@ -104,7 +104,7 @@ const Header = () => {
                   TV Shows
                 </li>
                 <li className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white">
-                  About
+                  Search
                 </li>
               </ul>
             </div>

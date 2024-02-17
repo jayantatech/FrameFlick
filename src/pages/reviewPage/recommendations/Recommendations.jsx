@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import fetchData from "../../../components/hooks/fetchData";
 import SliderComponent from "../../../components/sliderComponent/SliderComponent";
-const Recommendations = ({ film, id }) => {
-  const { data, loading } = fetchData(`/movie/${id}/recommendations`);
-  console.log(data);
+const Recommendations = ({ data, loading }) => {
   return (
     <div className=" py-16 my-14">
       <ContentWrapper>

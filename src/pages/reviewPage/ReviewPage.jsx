@@ -22,6 +22,9 @@ const ReviewPage = () => {
   const { data: newData, loading: newLoading } = fetchData(
     `${currentTabValu}/${id && id}/videos`
   );
+  const { data: recData, loading: recLoading } = fetchData(
+    `/movie/${id}/recommendations`
+  );
   return (
     <>
       <ReviewHero film={film} id={id} newData={newData} loading={loading} />
@@ -31,7 +34,9 @@ const ReviewPage = () => {
       {data?.results?.length > 0 && (
         <SimilerFilm data={data} loading={loading} />
       )}
-      <Recommendations id={id} film={film} />
+      {recData?.results.length > 0 && (
+        <Recommendations data={recData} loading={recLoading} />
+      )}
     </>
   );
 };

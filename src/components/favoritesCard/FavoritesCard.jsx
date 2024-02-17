@@ -12,7 +12,7 @@ const FavoritesCard = ({ data, loading, currentTabValu = "movie" }) => {
   const { url } = useSelector((state) => state?.home);
 
   const { data: newData, loading: newLoading } = fetchData(
-    `${currentTabValu}/${data?.id && data?.id}/videos`
+    `${currentTabValu}/${data?.id}/videos`
   );
 
   const averageVote = data && data?.vote_average;

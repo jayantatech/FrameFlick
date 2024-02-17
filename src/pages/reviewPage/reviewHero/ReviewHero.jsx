@@ -32,7 +32,7 @@ const ReviewHero = ({ film, id, newData, loading: newloading }) => {
       setVideoPopBox([{ vidBoxOnPass: true, vidBoxInfoPass: oneTrailer }])
     );
   };
-
+  console.log(data);
   return (
     <div className=" w-full max-md:h-[1460px] max-lg:h-[920px]">
       <div className=" w-full lg:h-[660px] max-lg:h-[430px] max-md:h-[410px] relative overflow-hidden flex items-center justify-center bg-black">
@@ -64,7 +64,7 @@ const ReviewHero = ({ film, id, newData, loading: newloading }) => {
             <div className=" col-span-6 max-lg:col-span-5 w-full h-full px-3 py-2">
               <div className=" w-full min-h-[50px] max-h-[80px]">
                 <h1 className=" text-4xl font-bold font-[Roboto] text-white max-md:text-black">
-                  {data?.original_title}
+                  {data?.original_title || data?.original_name}
                 </h1>
               </div>
               <div

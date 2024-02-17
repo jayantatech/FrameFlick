@@ -11,7 +11,7 @@ const FilmCard = ({ data, loading, tabTo }) => {
   const { url } = useSelector((state) => state?.home);
   const { currentTabValu } = useSelector((state) => state?.home);
   const { data: newData, loading: newLoading } = fetchData(
-    `${tabTo ? tabTo : currentTabValu}/${data?.id && data?.id}/videos`
+    `${tabTo ? tabTo : currentTabValu}/${data?.id}/videos`
   );
   const averageVote = data && data?.vote_average;
   const votePointer = Number(

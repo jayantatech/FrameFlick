@@ -2,6 +2,7 @@ import React from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import FilmCard from "../../../components/filmCard/FilmCard";
 import FilmMore from "../../../components/filmMore/FilmMore";
+import { useSelector } from "react-redux";
 
 const SearchFilms = ({ searchInfo, data, loading, isMorePage = true }) => {
   return (

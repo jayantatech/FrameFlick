@@ -15,7 +15,7 @@ const FilmCard = ({ data, loading, tabTo }) => {
   );
   const averageVote = data && data?.vote_average;
   const votePointer = Number(
-    data && data?.vote_average.toString().split(".")[1]
+    data && data?.vote_average?.toString()?.split(".")[1]
   );
 
   const originalTitle = data?.original_title || data?.name || "";

@@ -5,8 +5,6 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { logo } from "../../assets/icons";
 import { IoMdClose } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { setCurrentTabValu } from "../../store/HomeSlice";
 
 const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -103,7 +101,14 @@ const Header = () => {
                 >
                   TV Shows
                 </li>
-                <li className="cursor-pointer transition-all duration-200 px-2 py-1 rounded-md bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white">
+                <li
+                  className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
+                    activePage === "/search"
+                      ? "bg-[#30B170] hover:text-white text-white"
+                      : "bg-[#E6FFF8] hover:bg-[#30B170] hover:text-white"
+                  }`}
+                  onClick={() => navigateToNewPage("/search")}
+                >
                   Search
                 </li>
               </ul>

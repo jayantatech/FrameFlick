@@ -1,21 +1,9 @@
 import React, { useEffect, useState } from "react";
 import GenresCard from "../genresCard/GenresCard";
 
-const SearchHeroBox = ({ data, isMobile }) => {
-  const [mobileActive, setMobileActive] = useState(false);
-
-  useEffect(() => {
-    if (isMobile) {
-      setMobileActive(true);
-    }
-  }, [isMobile]);
-
+const SearchHeroBox = ({ data }) => {
   return (
-    <div
-      className={`flex items-center justify-center flex-col ${
-        !mobileActive ? "max-md:hidden" : "md:hidden"
-      }`}
-    >
+    <div className={`flex items-center justify-center flex-col`}>
       <h3 className=" font-[Roboto] bg-[#000]  text-white w-fit py-1 px-2 rounded-md font-bold">
         Search by Genres
       </h3>

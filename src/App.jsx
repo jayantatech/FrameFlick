@@ -10,6 +10,7 @@ import ReviewPage from "./pages/reviewPage/ReviewPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MoviePage from "./pages/moviePage/MoviePage";
 import TvShowsPage from "./pages/tvShowsPage/TvShowsPage";
+import SearchPage from "./pages/searchPage/SearchPage";
 
 /* 
 main green color - #58DAA8
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/review/:film/:id" element={<ReviewPage />} />
         <Route path="/movies" element={<MoviePage />} />
         <Route path="/tv_shows" element={<TvShowsPage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
       {/* <div className=" w-full h-[800px]"></div> */}
       <Footer />

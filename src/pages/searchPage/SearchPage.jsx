@@ -1,7 +1,8 @@
 import React from "react";
+import SearchHero from "./searchHero/SearchHero";
 
 const SearchPage = () => {
-  return <></>;
+  return <SearchHero />;
 };
 
 export default SearchPage;

@@ -8,6 +8,7 @@ const SearchPage = () => {
   const [searchText, setSearchText] = useState("iron man");
   const [searchMessage, setSearchMessage] = useState("iron man");
   const [storeData, setStoreData] = useState(null);
+
   const { data, loading } = fetchData(
     `search/multi?query=${
       searchText && searchText

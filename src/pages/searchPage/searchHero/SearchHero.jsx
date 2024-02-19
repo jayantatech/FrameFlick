@@ -7,22 +7,9 @@ import { setStoreText } from "../../../store/SearchSlice";
 
 const SearchHero = () => {
   const [storeGenres, setStoreGenres] = useState(null);
-  const { data, loading } = fetchData("movie/popular");
-  const [heroData, setHeroData] = useState([]);
+  const [imgData, setImgData] = useState(null);
+  const { data, loading } = fetchData("movie/upcoming");
   const imageAdd = useSelector((state) => state.home.url);
-  useEffect(() => {
-    const heroInfo = [];
-    for (let i = 0; i < 3; i++) {
-      let rendom = Math.floor(Math.random() * data?.results?.length - 1);
-      if (
-        !heroInfo.includes(data?.results[rendom]) &&
-        data?.results[rendom] !== undefined
-      ) {
-        heroInfo.push(data?.results[rendom]);
-      }
-    }
-    setHeroData(heroInfo);
-  }, [data]);
 
   const { data: genresData, loading: genresLoading } = fetchData(
     `genre/movie/list?language=en`
@@ -32,7 +19,6 @@ const SearchHero = () => {
     setStoreGenres(genresData?.genres?.slice(0, 8));
   }, [genresData]);
 
-  const demoData = data?.results[3];
   const inputRef = useRef(null);
   const dispatch = useDispatch();
   function inputSubmit() {
@@ -42,15 +28,24 @@ const SearchHero = () => {
     inputRef.current.value = "";
   }
 
+  useEffect(() => {
+    if (data?.results) {
+      const randomIndex = Math.floor(Math.random() * data.results.length);
+      setImgData(data.results[randomIndex]);
+    }
+  }, [data]);
+
   return (
     <ContentWrapper>
       <div className=" w-full h-[670px] max-lg:h-[470px] max-md:h-[230px] bg-[#000] rounded-2xl shadow-lg overflow-hidden my-4 relative">
         <div className=" w-full h-[670px] max-md:h-full md:-mt-4 bg-contain bg-[#000000]">
           <div className="absolute bottom-0 left-0 w-full h-full z-10 bg-[#00000085] scale-y-150 object-cover"></div>
-          <img
-            src={`${imageAdd + demoData?.backdrop_path}`}
-            className={"w-full h-full bg-black"}
-          />
+          {imgData && (
+            <img
+              src={`${imageAdd + imgData?.backdrop_path}`}
+              className={"w-full h-full bg-black scale-105"}
+            />
+          )}
           <div className="w-full h-full z-10 absolute top-0 left-0 flex items-center justify-center">
             <div className=" w-[80%] max-lg:w-[90%] h-[450px] max-md:h-[160px] max-md:w-[95%] bg-[#a19d9d] backdrop-filter backdrop-blur-sm bg-opacity-50 rounded-lg shadow-md px-8 py-7 max-lg:px-2 max-lg:py-2 flex items-center flex-col justify-center gap-5">
               <div className=" max-md:hidden">

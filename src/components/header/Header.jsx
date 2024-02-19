@@ -5,37 +5,23 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import { logo } from "../../assets/icons";
 import { IoMdClose } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router";
+import SearchHeroBox from "../searchHeroBox/SearchHeroBox";
+import { useDispatch } from "react-redux";
+import fetchData from "../hooks/fetchData";
+import { setStoreGenresData } from "../../store/SearchSlice";
+import SearchBarPage from "./SearchBarPage";
 
 const Header = () => {
-  const [openSearch, setOpenSearch] = useState(false);
+  const [openSearch, setOpenSearch] = useState(true);
   const [openMobileBar, setOpenMobileBar] = useState(false);
   const [activePage, setActivePage] = useState(null);
 
-  const refValu = useRef();
   const locationUrl = useLocation();
   const navigatePage = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [locationUrl]);
-  const onSearchHandler = () => {
-    setOpenSearch(false);
-    refValu.current.value = "";
-  };
-
-  function onKeyHandler(e) {
-    if (e.key === "Enter") {
-      onSearchHandler();
-    }
-  }
-
-  useEffect(() => {
-    if (openSearch || openMobileBar) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [openSearch, openMobileBar]);
 
   function navigateToNewPage(page) {
     navigatePage(`${page}`);
@@ -47,7 +33,7 @@ const Header = () => {
   }, [location]);
 
   return (
-    <>
+    <header>
       <div className="w-full py-3 bg-white z-50">
         <div
           className={`${
@@ -132,8 +118,8 @@ const Header = () => {
           </div>
         </ContentWrapper>
       </div>
-
-      <div
+      <SearchBarPage openMobileBar={openMobileBar} />
+      {/* <div
         className={` fixed top-0 left-0 w-full h-full transition-all ${
           openSearch ? "block w-full h-full z-50" : "hidden"
         }`}
@@ -169,10 +155,11 @@ const Header = () => {
                 Search
               </button>
             </div>
+            <SearchHeroBox data={storeGenres} />
           </div>
         </div>
-      </div>
-    </>
+      </div> */}
+    </header>
   );
 };
 

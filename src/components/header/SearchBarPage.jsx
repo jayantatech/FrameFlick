@@ -3,8 +3,12 @@ import { IoMdClose } from "react-icons/io";
 import { useNavigate } from "react-router";
 import SearchHeroBox from "../searchHeroBox/SearchHeroBox";
 import fetchData from "../hooks/fetchData";
-import { useDispatch } from "react-redux";
-import { setStoreGenresData } from "../../store/SearchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setHeaderActive,
+  setStoreGenresData,
+  setStoreText,
+} from "../../store/SearchSlice";
 
 const SearchBarPage = ({ openMobileBar }) => {
   const [openSearch, setOpenSearch] = useState(false);
@@ -18,6 +22,8 @@ const SearchBarPage = ({ openMobileBar }) => {
     `genre/movie/list?language=en`
   );
 
+  const { headerActive } = useSelector((state) => state.searchPage);
+
   useEffect(() => {
     setStoreGenres(genresData1?.genres?.slice(0, 10));
   }, [genresData1]);
@@ -30,23 +36,38 @@ const SearchBarPage = ({ openMobileBar }) => {
   }, [activeGenres, dispatch]);
   const refValu = useRef();
   const navigatePage = useNavigate();
+
+  function searchPageShow() {
+    dispatch(setHeaderActive(false));
+  }
+  function openSearchPage() {
+    searchPageShow();
+    inputSubmit();
+    navigate("/search");
+  }
+
+  function inputSubmit() {
+    if (refValu?.current?.value.length > 0) {
+      dispatch(setStoreText(refValu.current.value));
+    }
+    refValu.current.value = "";
+  }
+  const onSearchHandler = () => {
+    setOpenSearch(false);
+    openSearchPage();
+  };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setOpenSearch(headerActive);
+  }, [headerActive]);
+
   function onKeyHandler(e) {
     if (e.key === "Enter") {
       onSearchHandler();
     }
   }
-
-  const onSearchHandler = () => {
-    setOpenSearch(false);
-    refValu.current.value = "";
-  };
-  useEffect(() => {
-    if (openSearch || openMobileBar) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [openSearch, openMobileBar]);
 
   return (
     <div
@@ -65,8 +86,8 @@ const SearchBarPage = ({ openMobileBar }) => {
         >
           <IoMdClose />
         </div>
-        <div className=" flex items-center justify-center flex-col w-full h-full overflow-hidden max-lg:-translate-y-11 max-md:translate-y-14 z-0">
-          <div className=" items-center justify-center flex flex-col bg-[#7c7b7b] backdrop-filter backdrop-blur-sm bg-opacity-90 w-[50%] max-lg:w-[90%] px-4 py-5 rounded-lg gap-4">
+        <div className=" flex items-center justify-center flex-col w-full h-full overflow-hidden max-lg:-translate-y-11 max-md:translate-y-4 z-0">
+          <div className=" items-center justify-center flex flex-col bg-[#7c7b7b] backdrop-filter backdrop-blur-sm bg-opacity-90 w-[970px] max-lg:w-[90%] px-4 py-5 rounded-lg gap-4 max-md:h-[690px]">
             <div
               className={`w-full h-[60px] bg-white flex items-center justify-center rounded-md py-1 px-1 transition-all max-md:flex-col max-md:h-[120px] ${
                 openSearch ? "translate-y-0" : "translate-y-[550px]"
@@ -76,7 +97,7 @@ const SearchBarPage = ({ openMobileBar }) => {
                 type="text"
                 placeholder="Search Movies/TV Shows"
                 className=" w-full h-full bg-transparent outline-none text-[Roboto] font-bold text-[#000] text-xl pl-2 placeholder:text-[#0000005b] "
-                onKeyDown={() => onKeyHandler(e)}
+                onKeyDown={(e) => onKeyHandler(e)}
                 ref={refValu}
               />
               <button
@@ -86,7 +107,10 @@ const SearchBarPage = ({ openMobileBar }) => {
                 Search
               </button>
             </div>
-            <div className=" w-full h-[270px] max-lg:h-[330px] max-md:h-[480px]">
+            <div
+              className=" w-full h-[270px] min-lg:min-h-auto max-lg:max-h-[390px]  max-md:h-[520px]"
+              onClick={openSearchPage}
+            >
               <SearchHeroBox data={storeGenres} />
             </div>
           </div>

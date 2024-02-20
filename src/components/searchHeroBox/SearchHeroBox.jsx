@@ -3,6 +3,7 @@ import GenresCard from "../genresCard/GenresCard";
 import fetchData from "../hooks/fetchData";
 import { useDispatch } from "react-redux";
 import { setSetGenresText, setStoreGenresData } from "../../store/SearchSlice";
+import { useNavigate } from "react-router";
 
 const SearchHeroBox = ({ data }) => {
   const [activeGenres, setActiveGenres] = useState({ id: 28, name: "Action" });
@@ -27,7 +28,7 @@ const SearchHeroBox = ({ data }) => {
       <h3 className=" font-[Roboto] bg-[#000]  text-white w-fit py-1 px-2 rounded-md font-bold">
         Search by Genres
       </h3>
-      <div className=" py-3 gap-3 flex items-center justify-center flex-wrap min-h-full my-2 bg-[#00000062] max-md:h-[370px]  rounded-lg shadow-xl">
+      <div className=" py-3 gap-3 flex items-center justify-center flex-wrap min-h-full my-2 bg-[#00000062] max-md:h-auto rounded-lg shadow-xl">
         {data?.map((item) => (
           <div key={item?.id} onClick={() => findGenres(item)}>
             <GenresCard item={item} />

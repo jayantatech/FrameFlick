@@ -10,7 +10,7 @@ import {
   setStoreText,
 } from "../../store/SearchSlice";
 
-const SearchBarPage = ({ openMobileBar }) => {
+const SearchBarPage = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [activeGenres, setActiveGenres] = useState({ id: 28, name: "Action" });
   const [storeGenres, setStoreGenres] = useState(null);
@@ -35,8 +35,6 @@ const SearchBarPage = ({ openMobileBar }) => {
     }
   }, [activeGenres, dispatch]);
   const refValu = useRef();
-  const navigatePage = useNavigate();
-
   function searchPageShow() {
     dispatch(setHeaderActive(false));
   }

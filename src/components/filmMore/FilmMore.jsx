@@ -12,7 +12,7 @@ const FilmMore = () => {
 
   return (
     <div className=" w-full h-auto flex items-center justify-center pt-8">
-      <div className=" w-fit px-3 h-[110px] bg-[#E5FFF8] shadow-xl rounded-md flex items-center justify-center flex-col gap-3">
+      <div className=" w-fit px-3 h-[110px] bg-[#E5FFF8] shadow-xl rounded-md flex items-center justify-center flex-col gap-3 max-md:h-auto">
         <h4 className=" text-xl font-bold bg-green-500 px-2 font-[Roboto] rounded-lg text-white shadow-md hover:scale-95 transition-all duration-200 cursor-pointer">
           Find by Pages
         </h4>

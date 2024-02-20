@@ -3,7 +3,6 @@ import { IoIosStar } from "react-icons/io";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import GenresCard from "../genresCard/GenresCard";
 import BothButton from "../bothButton/BothButton";
-import ResponsiveTitle from "../responsiveTitle/responsiveTitle";
 import ResponsiveText from "../responsiveText/ResponsiveText";
 import RattingBox from "../rattingBox/RattingBox";
 import DateBox from "../dateBox/DateBox";
@@ -27,7 +26,6 @@ const MovieHeroInfo = ({ movieHeroData, storeGen, page }) => {
             <h2 className=" text-3xl font-[Roboto] font-bold text-white min-h-[40px]">
               {movieHeroData?.original_title || movieHeroData?.name}
             </h2>
-            {/* <ResponsiveTitle data={testData} /> */}
             <div className=" w-full h-[40px]  my-2 flex items-center flex-row gap-2 px-2">
               <DateBox data={movieHeroData} />
               <RattingBox data={movieHeroData} />

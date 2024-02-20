@@ -1,3 +1,3 @@
-import logo from "./logo.svg";
-
-export { logo };
+import logo from "./FrameFlick_logo.png";
+import logoBlack from "./FrameFlick_black.png";
+export { logo, logoBlack };

@@ -49,7 +49,7 @@ To run FrameFlick locally on your device, follow these steps:
    npm run dev
    ```
 
-5. Open your browser and visit `http://localhost:3000` to view the website.
+5. Open your browser and visit `http://localhost:5173/` to view the website.
 
 ## Pages Overview
 
@@ -72,6 +72,20 @@ Easily search for your favorite movies and TV shows using the search functionali
 ### Error Handling
 
 Comprehensive error handling ensures a smooth user experience even when dealing with empty data or content.
+
+## Lessons Learned
+
+Building FrameFlick provided invaluable learning experiences, including:
+
+- **API Integration**: Learned to effectively integrate third-party APIs like TMDb for fetching movie and TV show data.
+- **State Management with Redux**: Gained proficiency in managing application state using Redux, ensuring smooth data flow and manipulation.
+- **Responsive Design**: Mastered the art of crafting responsive designs to provide seamless experiences across various devices and screen sizes.
+- **Error Handling**: Enhanced skills in error handling, ensuring graceful handling of empty data and content to maintain user satisfaction.
+- **Optimized Tooling with Vite**: Leveraged Vite for fast and optimized frontend development, improving the overall efficiency of the development process.
+- **Library Utilization**: Explored and utilized various npm libraries like react-swiper-slider and react-video-player to enhance the functionality and user experience of the website.
+- **Routing and Navigation with Meiton**: Utilized Meiton for efficient routing and navigation within the application, ensuring smooth transitions between different pages.
+
+These learnings not only enriched my skill set but also contributed to the development of a robust and user-friendly movie review website.
 
 ## Feedback and Contributions
 

@@ -48,11 +48,11 @@ const SearchHero = () => {
           )}
           <div className="w-full h-full z-10 absolute top-0 left-0 flex items-center justify-center">
             <div className=" w-[80%] max-lg:w-[90%] h-[450px] max-md:h-[160px] max-md:w-[95%] bg-[#a19d9d] backdrop-filter backdrop-blur-sm bg-opacity-50 rounded-lg shadow-md px-8 py-7 max-lg:px-2 max-lg:py-2 flex items-center flex-col justify-center gap-5">
-              <div className=" max-md:hidden">
+              <div className=" max-md:hidden md:min-h-[280px] md:px-4">
                 <SearchHeroBox data={storeGenres} />
               </div>
               <div
-                className={`w-[90%] h-[60px] max-lg:w-[90%] max-md:w-[95%] bg-white flex items-center justify-center rounded-md py-1 px-1 transition-all max-md:flex-col max-md:h-[120px] `}
+                className={`w-[95%] h-[60px] max-lg:w-[95%] max-md:w-[95%] bg-white flex items-center justify-center rounded-md py-1 px-1 transition-all max-md:flex-col max-md:h-[120px] `}
               >
                 <input
                   type="text"
@@ -71,7 +71,7 @@ const SearchHero = () => {
           </div>
         </div>
       </div>
-      <div className=" md:hidden">
+      <div className=" md:hidden max-md:h-[340px]">
         <SearchHeroBox data={storeGenres} isMobile={true} />
       </div>
     </ContentWrapper>

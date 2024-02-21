@@ -4,7 +4,7 @@ import { IoStar } from "react-icons/io5";
 import fetchData from "../hooks/fetchData";
 import { setVideoPopBox } from "../../store/HomeSlice";
 import MyImage from "../myImage/MyImage";
-import { useLoaderData, useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const FavoritesCard = ({ data, loading, currentTabValu = "movie" }) => {
   const [videoBoxActive, setVideoBoxActive] = useState(false);

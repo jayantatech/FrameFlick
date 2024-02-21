@@ -69,7 +69,6 @@ const SearchBarPage = () => {
 
   const activeopenSearch = () => {
     setOpenSearch(false);
-    // openSearchPage();
     searchPageShow();
     inputSubmit();
   };

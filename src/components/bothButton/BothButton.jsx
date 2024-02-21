@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentTabValu, setVideoPopBox } from "../../store/HomeSlice";
+import { setVideoPopBox } from "../../store/HomeSlice";
 import fetchData from "../hooks/fetchData";
 import { useNavigate } from "react-router";
 

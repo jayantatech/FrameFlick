@@ -13,9 +13,6 @@ const Footer = () => {
   function navigateToNewPage(page) {
     navigatePage(`${page}`);
   }
-  const redirectToExternalWebsite = (link) => {
-    window.location.href = link;
-  };
   return (
     <div className=" bg-[#000] my-0 relative bottom-0 left-0">
       <ContentWrapper>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyImage from "../../../components/myImage/MyImage";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import MovieHeroInfo from "../../../components/movieHeroInfo/MovieHeroInfo";
 
 const HeroShows = ({ data }) => {

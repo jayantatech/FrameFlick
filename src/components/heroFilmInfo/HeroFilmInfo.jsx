@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import MyImage from "../myImage/MyImage";
-import fetchData from "../hooks/fetchData";
-import { setVideoPopBox } from "../../store/HomeSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
-import ResponsiveTitle from "../responsiveTitle/responsiveTitle";
 import ResponsiveText from "../responsiveText/ResponsiveText";
 import BothButton from "../bothButton/BothButton";
 import RattingBox from "../rattingBox/RattingBox";
 import DateBox from "../dateBox/DateBox";
+import ResponsiveTitle from "../responsiveTitle/ResponsiveTitle";
 
 const HeroFilmInfo = ({ data, imageAdd }) => {
   return (

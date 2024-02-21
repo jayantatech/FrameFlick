@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { IoIosStar } from "react-icons/io";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import GenresCard from "../genresCard/GenresCard";
 import BothButton from "../bothButton/BothButton";

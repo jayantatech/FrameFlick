@@ -3,7 +3,6 @@ import GenresCard from "../genresCard/GenresCard";
 import fetchData from "../hooks/fetchData";
 import { useDispatch } from "react-redux";
 import { setSetGenresText, setStoreGenresData } from "../../store/SearchSlice";
-import { useNavigate } from "react-router";
 
 const SearchHeroBox = ({ data }) => {
   const [activeGenres, setActiveGenres] = useState({ id: 28, name: "Action" });

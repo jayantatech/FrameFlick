@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import fetchData from "../../../components/hooks/fetchData";
 import SliderComponent from "../../../components/sliderComponent/SliderComponent";
 const Recommendations = ({ data, loading }) => {
   return (

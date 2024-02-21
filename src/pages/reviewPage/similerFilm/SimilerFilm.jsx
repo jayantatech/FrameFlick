@@ -1,9 +1,6 @@
-import React, { useState } from "react";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import fetchData from "../../../components/hooks/fetchData";
 import SliderComponent from "../../../components/sliderComponent/SliderComponent";
-import { useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 const SimilerFilm = ({ data, loading }) => {
   const { film, id } = useParams();
   return (

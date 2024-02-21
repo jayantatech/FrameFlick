@@ -3,13 +3,11 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import fetchData from "../../../components/hooks/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import MyImage from "../../../components/myImage/MyImage";
-import { useLocation, useNavigate, useParams } from "react-router";
 import { IoStar } from "react-icons/io5";
 import FilmDetails from "../../../components/filmDetails/FilmDetails";
 import { setVideoPopBox } from "../../../store/HomeSlice";
 
 const ReviewHero = ({ film, id, newData, loading: newloading }) => {
-  const [loadingImg, setLoadingImg] = useState(false);
   const { data, loading } = fetchData(`${film}/${id}`);
   const { data: creditsData, loading: loadingData } =
     fetchData(`${film}/${id}/credits

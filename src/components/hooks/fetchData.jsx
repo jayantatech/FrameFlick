@@ -11,13 +11,6 @@ const fetchData = (url) => {
     setData(null);
     setError(null);
     fetchDataFromApi(url)
-      .then((res) => {
-        if (res?.status === 404) {
-          throw new Error("Videos not found for this video");
-        } else {
-          return res.json();
-        }
-      })
       .then((data) => {
         setLoading(false);
         setData(data);

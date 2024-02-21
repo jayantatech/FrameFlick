@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Header from "./components/header/Header";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setFilmGenres, setUrl } from "./store/HomeSlice";
 import Home from "./pages/home/Home";
 import fetchData from "./components/hooks/fetchData";

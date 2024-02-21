@@ -16,14 +16,6 @@ const VideoPopBox = () => {
     if (vidBoxInfo) setVideoInfo(vidBoxInfo);
   }, [vidboxOn, vidBoxInfo]);
 
-  // useEffect(() => {
-  //   if (activeVideo) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  // }, [activeVideo]);
-
   function hideVideoBox() {
     dispatch(setVideoPopBox([{ vidBoxOnPass: false, vidBoxInfoPass: {} }]));
     setActiveVideo(false);

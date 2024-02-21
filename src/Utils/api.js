@@ -13,7 +13,7 @@ export const fetchDataFromApi = async (url = "discover/movie") => {
       throw new Error(`Failed to fetch data. Status: ${response.status}`);
     }
 
-    return response;
+    return response.json();
   } catch (error) {
     throw new Error(`Error in fetchDataFromApi: ${error.message}`);
   }

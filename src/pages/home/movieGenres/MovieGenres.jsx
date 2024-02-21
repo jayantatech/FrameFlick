@@ -5,10 +5,11 @@ import SliderComponent from "../../../components/sliderComponent/SliderComponent
 
 const MovieGenres = () => {
   const [storeGenres, setStoreGenres] = useState([]);
-  const [activeGenres, setActiveGenres] = useState(null);
+  const [activeGenres, setActiveGenres] = useState({ id: 28, name: "Action" });
   const { data: genresData, loading: genresLoading } = fetchData(
     `genre/movie/list?language=en`
   );
+  console.log(genresData);
   const { data, loading } = fetchData(
     `discover/movie?with_genres=${activeGenres?.id}`
   );

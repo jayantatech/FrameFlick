@@ -67,6 +67,13 @@ const SearchBarPage = () => {
     }
   }
 
+  const activeopenSearch = () => {
+    setOpenSearch(false);
+    // openSearchPage();
+    searchPageShow();
+    inputSubmit();
+  };
+
   return (
     <div
       className={` fixed top-0 left-0 w-full h-full transition-all ${
@@ -76,11 +83,11 @@ const SearchBarPage = () => {
       <div className="relative top-0 left-0 w-full h-full flex items-center justify-center">
         <div
           className=" absolute top-0 left-0 w-full h-full bg-[#0000009d]"
-          onClick={onSearchHandler}
+          onClick={activeopenSearch}
         ></div>
         <div
           className=" absolute top-[10%] max-md:right-10 max-md:top-[15%] right-[20%] w-[50px] h-[50px] bg-[#30B170] text-white rounded-full flex items-center justify-center cursor-pointer hover:bg-[#3a805d] text-3xl z-10"
-          onClick={onSearchHandler}
+          onClick={activeopenSearch}
         >
           <IoMdClose />
         </div>

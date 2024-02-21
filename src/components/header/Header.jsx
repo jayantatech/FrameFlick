@@ -61,7 +61,7 @@ const Header = () => {
               </Link>
             </div>
             <div
-              className={`flex items-center justify-center max-md:top-0 max-md:left-0 max-md:px-6 max-md:flex-col max-md:py-3 max-md:items-start max-md:bg-[#E6FFF8] max-md:h-[100%] max-md:w-[70%] max-md:justify-start transition-all duration-300 max-md:fixed z-50 ${
+              className={`flex items-center justify-center max-md:top-0 max-md:left-0 max-md:px-6 max-md:flex-col max-md:py-3 max-md:items-start max-md:bg-[#E6FFF8] max-md:h-[100%] max-md:w-[70%] max-md:justify-start transition-all duration-300 max-md:fixed max-md:z-50 ${
                 !openMobileBar
                   ? "max-md:-translate-x-[100%]"
                   : "max-md:-translate-x-0"
@@ -72,7 +72,7 @@ const Header = () => {
                   <img src={logoBlack} alt="logo" className=" w-[210px]" />
                 </Link>
               </div>
-              <ul className="flex max-md:flex-col  items-center justify-center gap-14 max-md:gap-8 font-bold font-[Roboto] max-md:items-start max-md:justify-start ml-2">
+              <ul className="flex max-md:flex-col items-center justify-center gap-14 max-md:gap-8 font-bold font-[Roboto] max-md:items-start max-md:justify-start ml-2">
                 <li
                   className={`cursor-pointer transition-all duration-200 px-2 py-1 rounded-md ${
                     activePage === "/"
@@ -119,9 +119,6 @@ const Header = () => {
               <span className=" hover:text-[#30B170] cursor-pointer transition-all duration-200">
                 <IoSearch onClick={() => openSearchBar()} />
               </span>
-              {/* <span className=" hover:text-[#30B170] cursor-pointer transition-all duration-200 max-md:hidden">
-                <GrMenu />
-              </span> */}
               <span
                 className={`hover:text-[#58DAA8] w-[40px] h-[40px] flex items-center justify-center rounded-full cursor-pointer transition-all duration-200 md:hidden  ${
                   openMobileBar ? "bg-[#E6FFF8] shadow-md z-20" : null

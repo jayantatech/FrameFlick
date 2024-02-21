@@ -57,6 +57,10 @@ To run FrameFlick locally on your device, follow these steps:
 
 The home page welcomes users and provides a glimpse of featured movies and TV shows.
 
+<video width="320" height="240" controls>
+  <source src="./src/assets/allPagesAssets/homeAssets/home_page.webm" type="video/mp4">
+</video>
+
 ### Movie Review Page
 
 Dive into detailed information and reviews for individual movies.

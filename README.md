@@ -57,17 +57,30 @@ To run FrameFlick locally on your device, follow these steps:
 
 The home page welcomes users and provides a glimpse of featured movies and TV shows.
 
-### Movie Review Page
+![screenshot-localhost_5173-2024 02 21-09_05_53](https://github.com/jayantatech/FrameFlick/assets/133254610/a0747c7f-a095-4d41-8fd2-bb8d5f08c693)
+
+
+### Movie/Tv Review Page
 
 Dive into detailed information and reviews for individual movies.
+![screenshot-localhost_5173-2024 02 21-09_05_07](https://github.com/jayantatech/FrameFlick/assets/133254610/437d7527-9963-4f95-ae69-e3cf3d13d5b3)
 
-### TV Review Page
+### Movie/TV Suggestions Page
 
-Explore reviews and details of various TV shows.
+Explore reviews and details of various TV shows and Movies.
+
+![screenshot-localhost_5173-2024 02 21-09_11_19](https://github.com/jayantatech/FrameFlick/assets/133254610/0f429d78-7f0e-492d-8b18-36a71c36f07e)
+
 
 ### Search Page
 
 Easily search for your favorite movies and TV shows using the search functionality.
+![screenshot-localhost_5173-2024 02 21-09_12_17](https://github.com/jayantatech/FrameFlick/assets/133254610/ea51c97f-c7ec-4708-900b-83d5dc1cc353)
+
+### Header Search Page
+
+Easily search for your favorite movies and TV shows using the Header search functionality.
+![screenshot-localhost_5173-2024 02 21-09_14_55](https://github.com/jayantatech/FrameFlick/assets/133254610/0db75014-198c-40ba-b01c-024f93f3ec99)
 
 ### Error Handling
 
@@ -91,9 +104,6 @@ These learnings not only enriched my skill set but also contributed to the devel
 
 I have strived to create a seamless and intuitive user experience, but if you encounter any issues or have suggestions for improvement, please feel free to reach out. Your feedback is invaluable in enhancing FrameFlick.
 
-## Screenshots and Demos
-
-[Insert screenshots and demo videos here]
 
 ---
 

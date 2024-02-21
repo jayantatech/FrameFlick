@@ -47,7 +47,6 @@ const App = () => {
         <Route path="/tv_shows" element={<TvShowsPage />} />
         <Route path="/search" element={<SearchPage />} />
       </Routes>
-      {/* <div className=" w-full h-[800px]"></div> */}
       <Footer />
     </BrowserRouter>
   );

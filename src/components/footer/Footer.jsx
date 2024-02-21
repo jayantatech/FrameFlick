@@ -5,6 +5,7 @@ import { TbFileCv } from "react-icons/tb";
 import { FaXTwitter } from "react-icons/fa6";
 import { logo } from "../../assets/icons";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const navigatePage = useNavigate();
@@ -100,10 +101,16 @@ const Footer = () => {
             </div>
             <div className="col-span-3 text-white">
               <div className=" flex items-start justify-start flex-col gap-3 ">
-                <img src={logo} alt="" />
+                <Link to="/">
+                  <img
+                    src={logo}
+                    alt=""
+                    className=" w-[190px] cursor-pointer"
+                  />
+                </Link>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reiciendis, rerum reprehenderit? Quo!
+                  Explore FrameFlick: Your go-to for movie reviews powered by
+                  TMDB API.
                 </p>
               </div>
             </div>

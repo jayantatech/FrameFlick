@@ -57,6 +57,9 @@ To run FrameFlick locally on your device, follow these steps:
 
 The home page welcomes users and provides a glimpse of featured movies and TV shows.
 
+![screenshot-localhost_5173-2024 02 21-08_25_14](https://github.com/jayantatech/FrameFlick/assets/133254610/8ad38546-b420-41fc-986a-0f2eba4d476c)
+
+
 ### Movie Review Page
 
 Dive into detailed information and reviews for individual movies.

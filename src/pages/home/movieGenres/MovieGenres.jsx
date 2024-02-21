@@ -30,7 +30,7 @@ const MovieGenres = () => {
             } Favorites`}
           </h2>
           <div className=" px-2 rounded-lg shadow-xl pb-4 bg-[#fff]">
-            <SliderComponent data={data} loading={loading} />
+            <SliderComponent data={data && data} loading={loading} />
           </div>
         </div>
         <div className=" py-6 px-4 bg-[#FFFFFF] shadow-2xl rounded-xl translate-y-3">

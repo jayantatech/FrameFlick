@@ -28,7 +28,7 @@ To run FrameFlick locally on your device, follow these steps:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/frameflick.git
+   git clone https://github.com/jayantatech/FrameFlick.git
    ```
 
 2. Navigate to the project directory:
@@ -56,10 +56,6 @@ To run FrameFlick locally on your device, follow these steps:
 ### Home Page
 
 The home page welcomes users and provides a glimpse of featured movies and TV shows.
-
-<video width="320" height="240" controls>
-  <source src="./src/assets/allPagesAssets/homeAssets/home_page.webm" type="video/mp4">
-</video>
 
 ### Movie Review Page
 

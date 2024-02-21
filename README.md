@@ -104,9 +104,6 @@ These learnings not only enriched my skill set but also contributed to the devel
 
 I have strived to create a seamless and intuitive user experience, but if you encounter any issues or have suggestions for improvement, please feel free to reach out. Your feedback is invaluable in enhancing FrameFlick.
 
-## Screenshots and Demos
-
-[Insert screenshots and demo videos here]
 
 ---
 

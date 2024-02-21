@@ -4,8 +4,8 @@ import ResponsiveText from "../responsiveText/ResponsiveText";
 import BothButton from "../bothButton/BothButton";
 import RattingBox from "../rattingBox/RattingBox";
 import DateBox from "../dateBox/DateBox";
+// import ResponsiveTitle from "../responsiveTitle/ResponsiveTitle";
 import ResponsiveTitle from "../responsiveTitle/ResponsiveTitle";
-
 const HeroFilmInfo = ({ data, imageAdd }) => {
   return (
     <div className=" w-full md:h-[280px] max-md:hidden absolute bottom-0 flex items-center justify-center my-8">

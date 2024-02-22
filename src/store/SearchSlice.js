@@ -10,7 +10,6 @@ const SearchSlice = createSlice({
   },
   reducers: {
     setStoreText: (state, action) => {
-      console.log(action);
       state.storeText = action.payload;
     },
     setStoreGenresData: (state, action) => {

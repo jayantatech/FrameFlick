@@ -15,14 +15,9 @@ const HomeVideoBox = () => {
   useEffect(() => {
     if (genRendom) {
       const videoToPlay = !isNaN(genRendom) && videoFilter[genRendom];
-      console.log(videoToPlay);
     }
   }, [videoToPlay]);
 
-  const { data: videoData, loading: videoLoading } = fetchData(
-    `movie/${videoToPlay && videoToPlay?.id}/videos`
-  );
-  // console.log(videoToPlay);
   useEffect(() => {
     if (videoToPlay) {
       setVideoOne(videoToPlay);

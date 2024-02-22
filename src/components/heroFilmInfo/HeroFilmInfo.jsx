@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import MyImage from "../myImage/MyImage";
 import ResponsiveText from "../responsiveText/ResponsiveText";
 import BothButton from "../bothButton/BothButton";
@@ -26,7 +25,6 @@ const HeroFilmInfo = ({ data, imageAdd }) => {
           <h2 className=" text-3xl font-bold font-[Roboto] text-white">
             {getTheTittle(data?.original_title)}
           </h2>
-          {/* <ResponsiveTitle data={data} /> */}
           <div className=" w-full h-[100px] max-md:hidden">
             <ResponsiveText data={data} />
           </div>

@@ -9,7 +9,6 @@ const MovieGenres = () => {
   const { data: genresData, loading: genresLoading } = fetchData(
     `genre/movie/list?language=en`
   );
-  console.log(genresData);
   const { data, loading } = fetchData(
     `discover/movie?with_genres=${activeGenres?.id}`
   );

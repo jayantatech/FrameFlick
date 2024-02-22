@@ -24,15 +24,15 @@ const DemoCarousel = () => {
   }, [dispatch]);
 
   const onChange = (index) => {
-    console.log("Carousel index changed:", index);
+    // console.log("Carousel index changed:", index);
   };
 
   const onClickItem = (index) => {
-    console.log("Clicked on item at index:", index);
+    // console.log("Clicked on item at index:", index);
   };
 
   const onClickThumb = (index) => {
-    console.log("Clicked on thumb at index:", index);
+    // console.log("Clicked on thumb at index:", index);
   };
 
   return (

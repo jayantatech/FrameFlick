@@ -71,7 +71,7 @@ pipeline {
 
                 echo "Remove the existing container"
 
-                docker rm "${CONTAINER_NAME}" 2>/dev/null || true
+                docker rm -f "${CONTAINER_NAME}" 2>/dev/null || true
 
                 echo "Remove the existing docker image"
 
@@ -102,8 +102,6 @@ pipeline {
                 cd "${BUILD_PATH}"
 
                 echo "Remove the existing container"
-
-                docker rm -f "${CONTAINER_NAME}" 2>/dev/null || true 
 
                 echo "Checking the container existing port"
 

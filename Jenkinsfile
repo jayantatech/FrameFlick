@@ -126,7 +126,7 @@ pipeline {
                 set -e
 
                 echo "Removing all unused images cache..."
-                docker images prune -af
+                docker image prune -af
 
                 echo "Removing all unused build cache..."
 

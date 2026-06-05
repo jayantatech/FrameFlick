@@ -23,7 +23,7 @@ pipeline {
 
 
         BUILD_PATH="${OS_HOME}/BUILDS/${PROJECT}/${IMAGE_NAME}/${BRANCH}"
-        // CONFIG_PATH="${OS_HOME}/container-config/${BRANCH}/${${IMAGE_NAME}}"
+        CONFIG_PATH="${OS_HOME}/container-config/${BRANCH}/${IMAGE_NAME}"
 
         // AWS 
 
@@ -46,13 +46,13 @@ pipeline {
 
                     echo "Clearing the build path"
 
-                    rm -f "${BUILD_PATH:?}/*"
+                    rm -rf "${BUILD_PATH:?}/"*
 
                     echo "Copy workspace code to repo"
 
-                    cp -R "${WORK_SPACE}/." "${BUILD_PATH}"
+                    cp -R "${WORKSPACE}/." "${BUILD_PATH}"
 
-                    rm -f "${BUILD_PATH}/.git"
+                    rm -rf "${BUILD_PATH}/.git"
 
                     echo "Create the folders stage is completed"
                 '''
@@ -73,7 +73,7 @@ pipeline {
 
                 echo "Building the docker image"
                 
-                EXISTING_IMAGES=$(docker images -q "${IMAGE_NAME}:*")
+                EXISTING_IMAGES=$(docker images -q "${IMAGE_NAME}")
                 if [ -n "${EXISTING_IMAGES}" ]; then
                     docker rmi -f ${EXISTING_IMAGES}
                     echo "Images cleared"
@@ -103,7 +103,7 @@ pipeline {
 
                 echo "Checking the container existing port"
 
-                EXISTING_CONTAINER=$(docker ps -aq --filter "publish=${DEV_HOST_PORT} ")
+                EXISTING_CONTAINER=$(docker ps -aq --filter "publish=${DEV_HOST_PORT}")
 
                 if [ -n "${EXISTING_CONTAINER}" ]; then
                     docker rm -f ${EXISTING_CONTAINER}

@@ -40,6 +40,7 @@ const CurrentFavorites = () => {
                   !changeTab ? "ml-[0%]" : "ml-[50%]"
                 }  w-1/2 h-full max-md:h-[80%] bg-[#30B170]  -z-10 rounded-lg`}
               ></div>
+              
               <button
                 className={`w-1/2 h-full max-md:h-[80%] rounded-lg text-xl max-md:text-lg font-bold ${
                   !changeTab ? "text-white" : "text-black"

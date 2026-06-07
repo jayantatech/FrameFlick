@@ -27,6 +27,7 @@ pipeline {
 
         
         REMOTE_IMAGE="${REGISTRY}/${IMAGE_NAME}"
+        NETWORK_NAME="proxy"
 
         // AWS 
 
@@ -158,7 +159,7 @@ pipeline {
 
                     echo "Running the container"
 
-                    docker run -d -p "${DEV_HOST_PORT}:${CONTAINER_PORT}" --name "${CONTAINER_NAME}" --restart unless-stopped "${IMAGE_NAME}:${IMAGE_TAG}"
+                    docker run -d -p "${DEV_HOST_PORT}:${CONTAINER_PORT}" --name "${CONTAINER_NAME}" --network ${NETWORK_NAME} --restart unless-stopped "${IMAGE_NAME}:${IMAGE_TAG}"
 
                     echo "Docker container is up and running on port ${DEV_HOST_PORT}"
 
@@ -179,7 +180,7 @@ pipeline {
 
                     echo "Running on qa branch"
 
-                    docker run -d -p "${QA_HOST_PORT}:${CONTAINER_PORT}" --name "${CONTAINER_NAME}" --restart unless-stopped "${REMOTE_IMAGE}:${IMAGE_TAG}"
+                    docker run -d -p "${QA_HOST_PORT}:${CONTAINER_PORT}" --name "${CONTAINER_NAME}" --network ${NETWORK_NAME} --restart unless-stopped "${REMOTE_IMAGE}:${IMAGE_TAG}"
 
                 else 
                     echo "unknown branch name ${BRANCH_NAME}"

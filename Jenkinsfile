@@ -49,7 +49,7 @@ pipeline {
 
                     echo "Clearing the build path"
 
-                    rm -rf ${BUILD_PATH:?}/*
+                    rm -rf "${BUILD_PATH}"/*
 
                     echo "Copy workspace code to repo"
 

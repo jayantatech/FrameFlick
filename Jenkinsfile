@@ -147,7 +147,7 @@ pipeline {
 
                 echo "Checking the container existing port"
 
-                if [ "${BRANCH}" == "dev" ]; then
+                if [ "${BRANCH}" = "dev" ]; then
 
                     EXISTING_CONTAINER=$(docker ps -aq --filter "publish=${DEV_HOST_PORT}")
 
@@ -162,7 +162,7 @@ pipeline {
 
                     echo "Docker container is up and running on port ${DEV_HOST_PORT}"
 
-                elif [ "${BRANCH}" == "qa" ]; then 
+                elif [ "${BRANCH}" = "qa" ]; then 
 
                     echo "Deploy to qa branch"
 

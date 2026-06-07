@@ -32,6 +32,7 @@ const CurrentFavorites = () => {
           <h2 className="text-3xl font-bold font-[Roboto] pb-6">
             Current Favorites by jay
           </h2>
+          
           <div className="border-4 border-[#30B170] px-2 rounded-lg shadow-xl pb-3">
             <FavoritesSlider data={data} loading={loading} />
             <div className=" w-full h-[60px] relative flex flex-row gap-5">
@@ -40,7 +41,7 @@ const CurrentFavorites = () => {
                   !changeTab ? "ml-[0%]" : "ml-[50%]"
                 }  w-1/2 h-full max-md:h-[80%] bg-[#30B170]  -z-10 rounded-lg`}
               ></div>
-              
+
               <button
                 className={`w-1/2 h-full max-md:h-[80%] rounded-lg text-xl max-md:text-lg font-bold ${
                   !changeTab ? "text-white" : "text-black"

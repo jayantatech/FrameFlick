@@ -40,7 +40,7 @@ pipeline {
     stages {
         stage("Create the folders") {
             steps {
-                sh """
+                sh '''
                     echo "Creating the build path"
                     mkdir -p "${BUILD_PATH}"
 
@@ -49,7 +49,7 @@ pipeline {
 
                     echo "Clearing the build path"
 
-                    rm -rf "${BUILD_PATH}"/*
+                    rm -rf "${BUILD_PATH:?}"/*
 
                     echo "Copy workspace code to repo"
 
@@ -58,7 +58,7 @@ pipeline {
                     rm -rf "${BUILD_PATH}/.git"
 
                     echo "Create the folders stage is completed"
-                """
+                '''
 
             }
         }
@@ -66,7 +66,7 @@ pipeline {
         stage("Building the image stage") {
 
             steps {
-                sh """
+                sh '''
 
                 set -e
 
@@ -91,7 +91,7 @@ pipeline {
 
                 echo "new docker images got build"
 
-                """
+                '''
             }
 
         }
@@ -108,7 +108,7 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS',
                 )]) {
 
-               sh """
+               sh '''
                 set -e
 
                 echo "Login into docker"
@@ -129,7 +129,7 @@ pipeline {
 
                 docker logout
 
-                """
+                '''
                 }
             }
 
@@ -137,7 +137,7 @@ pipeline {
 
         stage("Running the container") {
             steps {
-                sh """
+                sh '''
 
                 set -e
 
@@ -188,13 +188,13 @@ pipeline {
 
 
 
-                """
+                '''
             }
         }
 
         stage("clean up stage") {
             steps {
-                sh """
+                sh '''
                 set -e
 
                 echo "Removing all unused images cache..."
@@ -204,7 +204,7 @@ pipeline {
 
                 docker builder prune -af
 
-                """
+                '''
 
             }
         }
@@ -214,25 +214,25 @@ pipeline {
 
         success {
 
-            sh """
+            sh '''
 
             echo "Everything is working on ${BRANCH}"
 
-            """
+            '''
         }
         failure {
-            sh """
+            sh '''
             echo "${BRANCH} deployment failed"
 
-            """
+            '''
         }
 
         always {
-            sh """
+            sh '''
                 echo "Docker container status:"
                 docker ps -a || true
 
-            """
+            '''
         }
     }
 

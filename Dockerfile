@@ -29,6 +29,8 @@ FROM nginx:1.27-alpine
 # Remove default static files to prevent configuration leaks
 RUN rm -rf /usr/share/nginx/html/*
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy built static assets from the builder stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 

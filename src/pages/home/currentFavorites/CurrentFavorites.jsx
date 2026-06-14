@@ -30,7 +30,7 @@ const CurrentFavorites = () => {
       <ContentWrapper>
         <div className=" ">
           <h2 className="text-3xl font-bold font-[Roboto] pb-6">
-            Current Favorites by jay
+            Current Favorites for dev
           </h2>
           
           <div className="border-4 border-[#30B170] px-2 rounded-lg shadow-xl pb-3">
